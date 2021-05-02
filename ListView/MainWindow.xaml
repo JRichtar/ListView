@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:List"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" MinHeight="450" MaxHeight="450" Width="800" MinWidth="800" MaxWidth="800" >
+        Title="MainWindow" Height="450" MinHeight="450" MaxHeight="450" Width="800" MinWidth="800" MaxWidth="800" Loaded="Window_Loaded" >
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -20,13 +20,13 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <ListView Name="People" Grid.Column="0" Grid.RowSpan="5" ItemsSource="{Binding .}" SelectionChanged="People_SelectionChanged" Background="DarkGray">
+        <ListView Name="People" Grid.Column="0" Grid.RowSpan="5" ItemsSource="{Binding People}" SelectionChanged="People_SelectionChanged" Background="DarkGray" MouseDoubleClick="People_MouseDoubleClick">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Key}" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding FirsName}" FontFamily="Times New Roman"></TextBlock>
                         <TextBlock Text=" "></TextBlock>
-                        <TextBlock Text="{Binding Value.LastName}" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding LastName}" FontFamily="Times New Roman"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -39,5 +39,6 @@
         <Label Content="{Binding BirthDate}" Grid.Row="2" Grid.Column="1" Background="LightGray" FontFamily="Times New Roman" Margin="0,86,0,0" Grid.RowSpan="2" FontSize="16"></Label>
         <Label Content="{Binding PersonIDNumber}" Grid.Row="3" Grid.Column="1" Background="LightGray" FontFamily="Times New Roman" Margin="0,86,0,0" Grid.RowSpan="2" FontSize="16"></Label>
 
+        <Button Name="AddButton" Content="Add person" Grid.Column="0" Grid.Row="5" Margin="10, 10" Click="AddButton_Click"/>
     </Grid>
 </Window>

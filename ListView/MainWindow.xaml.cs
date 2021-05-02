@@ -24,18 +24,32 @@ namespace List
         {
             InitializeComponent();
             Person.PeopleList();
-            People.DataContext = Person.People;
+            Person p = new Person();
+            DataContext = p;
         }
 
         private void People_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Person p = ((KeyValuePair<string, Person>)(sender as ListView).SelectedItem).Value;
-            DataContext = p;
+            Person pi = (Person)((sender as ListView).SelectedItem);
+            DataContext = pi;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             People.SelectedItem = 0;
+        }
+
+        private void People_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Person pi = (Person)((sender as ListView).SelectedItem);
+            ListEdit le = new ListEdit(pi);
+            le.ShowDialog();
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            ListEdit le = new ListEdit();
+            le.ShowDialog();
         }
     }
 }
