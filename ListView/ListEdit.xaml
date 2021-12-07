@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:List"
         mc:Ignorable="d"
-        Title="ListEdit" Height="450" MaxHeight="450" Width="800" MaxWidth="800">
+        Title="ListEdit" Height="448" MaxHeight="450" Width="800" MaxWidth="800">
     <Grid Background="Gray">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
